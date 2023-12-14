@@ -1,0 +1,110 @@
+body {
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+    font-size: 10pt; 
+    line-height: 1.0; 
+}
+
+h2, h3 {
+    margin-top: 2px; 
+    margin-bottom: 1px; 
+}
+
+.job, .project {
+    margin-bottom: 2px; 
+}
+
+.job .job-header, .job ul, .project .project-header, .project ul {
+    margin-top: 1px;
+}
+
+.container {
+    width: 60%;
+    margin: 20px auto; 
+    background: #fff;
+}
+
+.header {
+    text-align: center;
+    position: relative;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 0px;
+    left: 20px; 
+}
+
+.header h1 {
+    font-size: 20pt;
+    margin-bottom: 2pt; 
+}
+
+.contact-info, .links a {
+    font-size: 10pt; 
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 12pt;
+    margin-top: 12pt;
+    margin-bottom: 2pt; 
+    padding-bottom: 1pt;
+    border-bottom: 1px solid #000;
+    font-weight: bold;
+}
+
+.edu-entry, .job, .project {
+    margin-bottom: 2pt; 
+    position: relative;
+    padding-right: 120px; 
+}
+
+.job-header {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: right;
+    float: right;
+}
+
+.company-location {
+    margin: 0;
+}
+
+section p {
+    margin: 1pt 0;
+    font-size: 11pt; 
+}
+
+.edu-entry:after, .job:after, .project:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.counter-box {
+    position: absolute;
+    top: 0;
+    right: 20px; 
+    text-align: right;
+    font-size: 12px; 
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.visitor-counter {
+    font-weight: bold;
+}

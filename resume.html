@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jonathan Schluesche</title>
+    <link rel="stylesheet" type="text/css" href="assets/index.css">
+    <script type="module" src="scripts/visitorCounter.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="assets/headshot.jpeg" alt="Profile Picture" class="profile-pic">
+            <h1>Jonathan Schluesche</h1>
+            <div class="counter-box">
+                <div class="visitor-counter">Visitors: <span id="visitor-count">0</span></div>
+            </div>
+            <p class="contact-info">jschlues611@gmail.com | 608-214-9997 | Aspiring Software Engineer | Madison, WI</p>
+            <p class="links"><a href="https://www.linkedin.com/in/jonathan-schluesche-7a1a94252/" target="_blank">LinkedIn</a> | <a href="https://github.com/JSlush611" target="_blank">Github</a></p>
+        </header>
+
+        <section>
+            <h2>EDUCATION</h2>
+            <div class="edu-entry">
+                <h3>University of Wisconsin - Madison</h3>
+                <div class="job-header">
+                    <p class="company-location"><b>Madison, WI</b></p>
+                    <p><i>June 2023 - May 2026</i></p>
+                </div>
+                <p>B.S. Computer Science + Data Science</p>
+            </div>
+            <div class="edu-entry">
+                <h3>University of Wisconsin - Green Bay</h3>
+                <div class="job-header">
+                    <p class="company-location"><b>Green Bay, WI</b></p>
+                    <p><i>Sep. 2022 - May 2023</i></p>
+                </div>
+                <p>Part of Division I swim program, transferred</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>EXPERIENCE</h2>
+            <div class="job">
+                <h3>Contract Software Engineer</h3>
+                <div class="job-header">
+                    <p class="company-location"><b>Madison, WI</b></p>
+                    <p><i>Aug. 2023 - Present</i></p>
+                </div>
+                <i>GiveSamsara</i>
+                <ul>
+                    <li>Developing a comprehensive full-stack solution with PHP, Laravel, Next.js, React</li>
+                    <li>Vision and goal to augment medical education via a dynamic, interactive role-playing portal</li>
+                    <li>Architected and developed distinct dashboards for roles, to create a collaborative learning ecosystem.</li>
+                    <li>Integrated advanced Git strategies, streamlining deployment pipelines and seamless application updates</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Software Developer</h3>
+                <div class="job-header">
+                    <p class="company-location"><b>Madison, WI</b></p>
+                    <p><i>Sep. 2023 - Present</i></p>
+                </div>
+                <i>WCER</i>
+                <ul>
+                    <li>Working on a team of 6 software developers in an Agile environment to develop new functionality for education technology platform used by middle school classrooms with C#/.NET, SQL, AngularJS</li>
+                    <li>Coordinating with stakeholders including developers, designers, and researchers to determine requirements</li>
+                    <li>Increasing software usability and accessibility by integrating with 3rd party translation APIs to suit needs</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3><i>Software Development Tutor</i></h3>
+                <div class="job-header">
+                    <p class="company-location"><b>Green Bay, WI</b></p>
+                    <p><i>Sep. 2022 - May 2023</i></p>
+                </div>
+                <i>Univeristy of Wisconsin - Green Bay</i>
+                <ul>
+                    <li>Provided comprehensive support in HTML, CSS, JavaScript and Java to UWGB students</li>
+                    <li>Recommended by a CS professor for expertise and skill in COMP SCI 201 and COMP SCI 256</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>PROJECTS</h2>
+            <div class="project">
+                <h3 class="links"><a href="https://github.com/JSlush611/EnrollChecker" target="_blank">EnrollChecker</a></h3>
+                <div class="job-header">
+                    <p><i>May 2023 - Present</i></p>
+                </div>
+                <ul>
+                    <li>Created full-stack web app for UW-Madison class enrollment tracking, utilizing MERN stack</li>
+                    <li>Engineered Golang microservice and API for real-time class availability checks</li>
+                    <li>Designed user-friendly React.js frontend with account and subscription management</li>
+                    <li>Integrated microservice and API for consistent course polls and real-time notifications</li>
+                </ul>
+            </div>
+            <div class="project">
+                <h3 class="links"><a href="https://github.com/JSlush611/LaneBookerGo" target="_blank">WorkoutWizard</a></h3>
+                <div class="job-header">
+                    <p><i>Dec. 2022 - Present</i></p>
+                </div>
+                <ul>
+                    <li>Developed Golang automation for booking lanes via HTTP requests, bypassing antibot measures</li>
+                    <li>Emulated browser by using cookie manipulation, TLS, reverse engineering and API integration</li>
+                </ul>
+            </div>
+            <div class="project">
+                <h3 class="links"><a href="https://github.com/JSlush611/PrizePicks" target="_blank">SportsIntel</a></h3>
+                <div class="job-header">
+                    <p><i>Sep. 2022 - March 2023</i></p>
+                </div>
+                <ul>
+                    <li>Developed Python bot to gather and analyze sports player statistics via API reverse engineering</li>
+                    <li>Identified and ranked outlier players by stat variation using priority queue data structure</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>TECHNICAL SKILLS</h2>
+            <div>
+                <h3>Languages</h3>
+                <p>Java, Python, C, SQL (Postgres), JavaScript, HTML/CSS, R, Golang, Php, C#</p>
+                <h3>Frameworks</h3>
+                <p>React, Node.js, Redux, Material-UI, Express.js, Flask, Wordpress, .NET</p>
+                <h3>Technologies</h3>
+                <p>Google Cloud Platform, Git, Burp Suite, Wireshark, APIs, MongoDB</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
