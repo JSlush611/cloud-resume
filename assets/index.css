@@ -108,3 +108,23 @@ section p {
 .visitor-counter {
     font-weight: bold;
 }
+
+@media screen and (max-width: 1150px) {
+    .profile-pic {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 70px; 
+        height: 70px; 
+    }
+
+    .counter-box {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .header {
+        padding-top: 60px; 
+    }
+}
