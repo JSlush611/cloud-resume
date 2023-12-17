@@ -2,13 +2,19 @@ import unittest
 from unittest.mock import patch, MagicMock
 from functions.add_visitor import main
 from flask import Flask
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+ALLOWED_ORIGIN = os.getenv('ALLOWED_ORIGIN', 'default_origin_if_not_set')
 
 class TestAddVisitor(unittest.TestCase):
 
     @patch('google.cloud.firestore.Client')
     def test_add_visitor(self, mock_client):
         # Mock Firestore client and request
-        mock_request = MagicMock(method='POST', get_json=lambda: {'cookie': 'test_cookie', 'fingerprint': 'test_fingerprint'})
+        mock_request = MagicMock(method='POST', get_json=lambda: {'cookie': 'test_cookie', 'fingerprint': 'test_fingerprint'}, headers={'Origin': ALLOWED_ORIGIN})
+
         mock_collection = MagicMock()
         mock_client.return_value.collection.return_value = mock_collection
 

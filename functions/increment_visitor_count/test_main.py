@@ -2,11 +2,16 @@ import unittest
 from unittest.mock import patch, MagicMock
 from functions.increment_visitor_count import main
 from flask import Flask
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+ALLOWED_ORIGIN = os.getenv('ALLOWED_ORIGIN', 'default_origin_if_not_set')
 
 class TestIncrementVisitorCount(unittest.TestCase):
     @patch('google.cloud.firestore.Client')
     def test_increment_visitor_count(self, mock_client):
-        mock_request = MagicMock()
+        mock_request = MagicMock(headers={'Origin': ALLOWED_ORIGIN})
         mock_transaction = MagicMock()
         mock_client.return_value.transaction.return_value = mock_transaction
         mock_document = MagicMock()

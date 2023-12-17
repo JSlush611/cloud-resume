@@ -2,13 +2,18 @@ import unittest
 from unittest.mock import patch, MagicMock
 from functions.check_visitor_data import main
 from flask import Flask, json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+ALLOWED_ORIGIN = os.getenv('ALLOWED_ORIGIN', 'default_origin_if_not_set')
 
 class TestCheckVisitor(unittest.TestCase):
 
     @patch('google.cloud.firestore.Client')
     def test_check_visitor_by_unique_id(self, mock_client):
         # Mock Firestore client and request
-        mock_request = MagicMock(method='POST', get_json=lambda: {'uniqueId': '12345', 'fingerprint': None})
+        mock_request = MagicMock(method='POST', get_json=lambda: {'uniqueId': '12345', 'fingerprint': None}, headers={'Origin': ALLOWED_ORIGIN})        
         mock_query_result = MagicMock()
         mock_client.return_value.collection.return_value.where.return_value.limit.return_value.get.return_value = [mock_query_result]
 
@@ -24,7 +29,7 @@ class TestCheckVisitor(unittest.TestCase):
     @patch('google.cloud.firestore.Client')
     def test_check_visitor_by_fingerprint(self, mock_client):
         # Mock Firestore client and request
-        mock_request = MagicMock(method='POST', get_json=lambda: {'uniqueId': None, 'fingerprint': 'abc123'})
+        mock_request = MagicMock(method='POST', get_json=lambda: {'uniqueId': None, 'fingerprint': 'abc123'}, headers={'Origin': ALLOWED_ORIGIN})
         mock_query_result = MagicMock()
         mock_query_result.to_dict.return_value = {'cookie': 'cookie_value'}
         mock_client.return_value.collection.return_value.where.return_value.limit.return_value.get.return_value = [mock_query_result]
@@ -41,7 +46,7 @@ class TestCheckVisitor(unittest.TestCase):
     @patch('google.cloud.firestore.Client')
     def test_check_visitor_not_found(self, mock_client):
         # Mock Firestore client and request
-        mock_request = MagicMock(method='POST', get_json=lambda: {'uniqueId': None, 'fingerprint': None})
+        mock_request = MagicMock(method='POST', get_json=lambda: {'uniqueId': None, 'fingerprint': None}, headers={'Origin': ALLOWED_ORIGIN})
         mock_client.return_value.collection.return_value.where.return_value.limit.return_value.get.return_value = []
 
         app = Flask(__name__)

@@ -2,11 +2,13 @@ from google.cloud import firestore
 import functions_framework
 from flask import jsonify
 
+ALLOWED_ORIGIN = "https://jschluesche.com"
+
 @functions_framework.http
 def add_visitor(request):
     # Set CORS headers
     headers = {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Max-Age': '3600'
@@ -15,6 +17,11 @@ def add_visitor(request):
     # Handle CORS preflight
     if request.method == 'OPTIONS':
         return '', 204, headers
+
+    origin = request.headers.get('Origin')
+    
+    if origin != ALLOWED_ORIGIN:
+        return jsonify({'error': 'Unauthorized'}), 403, headers
 
     request_data = request.get_json()
     cookie = request_data.get('cookie')

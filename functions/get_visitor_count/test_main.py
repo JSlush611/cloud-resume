@@ -2,13 +2,18 @@ import unittest
 from unittest.mock import patch, MagicMock
 from functions.get_visitor_count import main
 from flask import Flask
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+ALLOWED_ORIGIN = os.getenv('ALLOWED_ORIGIN', 'default_origin_if_not_set')
 
 class TestGetVisitorCount(unittest.TestCase):
 
     @patch('google.cloud.firestore.Client')
     def test_get_visitor_count_document_exists(self, mock_client):
         # Mock Firestore client
-        mock_request = MagicMock(method='GET')
+        mock_request = MagicMock(method='GET', headers={'Origin': ALLOWED_ORIGIN})
         mock_document = MagicMock()
         mock_client.return_value.collection.return_value.document.return_value = mock_document
 
@@ -31,7 +36,7 @@ class TestGetVisitorCount(unittest.TestCase):
     @patch('google.cloud.firestore.Client')
     def test_get_visitor_count_document_not_exists(self, mock_client):
         # Mock Firestore client
-        mock_request = MagicMock(method='GET')
+        mock_request = MagicMock(method='GET', headers={'Origin': ALLOWED_ORIGIN})
         mock_document = MagicMock()
         mock_client.return_value.collection.return_value.document.return_value = mock_document
 
